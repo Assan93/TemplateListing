@@ -2,9 +2,9 @@ import React from 'react'
 
 const contact = () => {
   return (
-    <div>
+    <div className=''>
         <>
-  <div className="container px-100 py-20 position:fixed">
+  <div className="container px-100 py-20 position:fixed ">
     <div>
     <h2 className='text-center font-bold text-4xl'>Contact Us</h2>
     <p className='pt-4 px-8 text-lg '>Any questions or remarks? Just write us a message!</p>
