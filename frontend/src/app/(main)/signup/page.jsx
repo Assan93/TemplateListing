@@ -3,11 +3,11 @@ import React from 'react'
 const signup = () => {
   return (
     <div>
-      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-2xs px-130 py-20">
+      <div className="mt-7 bg-black text-white border border-gray-200 rounded-xl shadow-2xs px-130 py-20">
   <div className="p-4 sm:p-7 px-130">
     <div className="text-center">
-      <h1 className="block text-2xl font-bold text-gray-800">Sign in</h1>
-      <p className="mt-2 text-sm text-gray-600">
+      <h1 className="block text-2xl font-bold text-white-800">Sign in</h1>
+      <p className="mt-2 text-sm text-white-600">
         Don't have an account yet?
         <a className="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium" href="../examples/html/signup.html">
           Sign up here
