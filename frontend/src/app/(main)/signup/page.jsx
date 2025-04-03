@@ -37,6 +37,7 @@ const signup = () => {
             <div className="relative">
               <input type="Name" 
               id="Name" 
+
                className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                 required aria-describedby="email-error" />
               <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -55,8 +56,8 @@ const signup = () => {
             <label htmlFor="email" className="block text-sm mb-2">Email address</label>
             <div className="relative">
               <input type="email"
-               id="email" 
-               name="email"
+               id="email"
+
                 className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" 
                 required aria-describedby="email-error" />
               <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -77,7 +78,7 @@ const signup = () => {
             <div className="relative">
               <input type="password"
                id="password"
-                name="password"
+               
                  className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                   required aria-describedby="password-error" />
 
