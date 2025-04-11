@@ -21,8 +21,17 @@ app.get('/add', (req, res) => {
 })
 
 // getall
+ app.get('/getall', (req, res) => {
+    res.send('response from getall');
+})
 // delete
+app.get('/getbydelete', (req, res) => {
+    res.send('response from delete');
+})
 // update
+app.get('/getbyupdate', (req, res) => {
+    res.send('response from update');
+})
 
 // starting the server
 app.listen(port, () => {

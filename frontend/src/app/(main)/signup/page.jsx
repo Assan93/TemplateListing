@@ -3,7 +3,7 @@ import React from 'react'
 const signup = () => {
   return (
     <div>
-      <div className="mt-7 bg-black text-white border border-gray-200 rounded-xl shadow-2xs px-130 py-20">
+      <div className="lg:px-130 md:px-50 bg-black text-white border border-gray-200 rounded-xl shadow-2xs px-130 py-6">
   <div className="p-4 sm:p-7 px-130">
     <div className="text-center">
       <h1 className="block text-2xl font-bold text-white-800">Sign in</h1>
