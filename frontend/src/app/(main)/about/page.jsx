@@ -1,3 +1,4 @@
+import Navbar from '@/components/nabvar'
 import React from 'react'
 
 const Aboutus = () => {
@@ -10,26 +11,7 @@ const Aboutus = () => {
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
     />
-    {/* Navbar */}
-    <nav className="bg-blue-600 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold">
-          TemplateHub
-        </a>
-        <div>
-          <a href="index.html" className="mx-2 hover:text-gray-300">
-            Home
-          </a>
-          <a href="about.html" className="mx-2 hover:text-gray-300">
-            About
-          </a>
-          <a href="contact.html" className="mx-2 hover:text-gray-300">
-            Contact
-          </a>
-        </div>
-      </div>
-    </nav>
-    {/* About Us Section */}
+         {/* About Us Section */}
     <section className="container mx-auto px-6 py-12">
       <div className="text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
