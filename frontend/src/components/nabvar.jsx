@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
@@ -143,12 +144,12 @@ const Navbar = () => {
                     aria-labelledby="hs-header-base-dropdown"
                   >
                     <div className="py-1 md:px-1 space-y-0.5">
-                      <a
+                      <Link
                         className="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
-                        href="#"
+                        href="/About"
                       >
                         About
-                      </a>
+                      </Link>
                       <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--is-collapse:true] md:[--is-collapse:false] relative">
                         <button
                           id="hs-header-base-dropdown-sub"
@@ -178,12 +179,12 @@ const Navbar = () => {
                           aria-labelledby="hs-header-base-dropdown-sub"
                         >
                           <div className="p-1 space-y-1">
-                            <a
+                            <Link
                               className="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
-                              href="#"
+                              href="/about"
                             >
                               About
-                            </a>
+                            </Link>
                             <a
                               className="p-2 md:px-3 flex items-center text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
                               href="#"
@@ -289,12 +290,12 @@ const Navbar = () => {
             </div>
             {/* Button Group */}
             <div className=" flex flex-wrap items-center gap-x-1.5">
-              <a
+              <Link
                 className="py-[7px] px-2.5 inline-flex items-center font-medium text-sm rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 focus:outline-hidden focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-                href="#"
+                href="/singup"
               >
                 Sign in
-              </a>
+              </Link>
               <a
                 className="py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:bg-blue-600"
                 href="#"

@@ -55,7 +55,7 @@ const ManageUser = () => {
                   <td className='p-2'>{new Date(user.createdAt).toLocaleDateString()}</td>
                   <td className='p-2'>
                     
-                    <Link href={'/update-user/'+user._id} className='p-2 bg-blue-500 text-white rounded'>
+                    <Link href={'/update-user/'+user._id} className='block w-fit p-2 bg-blue-500 text-white rounded'>
                       <IconPencil />
                     </Link>
                   </td>

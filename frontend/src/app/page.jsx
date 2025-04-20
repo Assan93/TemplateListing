@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const App = () => {
@@ -44,12 +45,12 @@ const App = () => {
           >
             Pricing
           </a>
-          <a
-            href="#"
+          <Link
+            href='/about'
             className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
           >
             About
-          </a>
+          </Link>
         </nav>
         {/* nav - end */}
         {/* buttons - start */}
@@ -92,12 +93,12 @@ const App = () => {
             Your one-stop destination for discovering high-quality, professionally designed templates. Our carefullly curated collection ensures that you can easily explore, compare, and download the perfect template to accelerate your project.
           </p>
           <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start">
-            <a
-              href="#"
+            <Link
+              href="/signup"
               className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
             >
               Start now
-            </a>
+            </Link>
             <a
               href="#"
               className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
@@ -108,7 +109,7 @@ const App = () => {
         </div>
         {/* content - end */}
         {/* image - start */}
-        <div className="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-auto xl:w-5/12">
+        <div className="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-150 lg:w-200 md:h-150 sm:h-96">
           <img
             src="https://img.freepik.com/premium-psd/desktop-screen-with-website-presentation-mockup-isolated_453592-107.jpg"
             loading="lazy"
@@ -480,7 +481,7 @@ const App = () => {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-8">
         {/* person - start */}
         <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
-          <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
+          <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">   
             <img
               src="https://cdn-images-1.medium.com/max/1600/1*a8JAtWTliCTBLIHLZfjydw.png"
               loading="lazy"
@@ -531,7 +532,7 @@ const App = () => {
         {/* person - end */}
         {/* person - start */}
         <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
-          <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
+          <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30"> 
             <img
               src="https://images.yourstory.com/cs/2/fb7ee200-7579-11e9-995c-171c030e4eb8/Ecomm-min1560422084936.jpg?fm=png&auto=format"
               loading="lazy"
@@ -580,7 +581,7 @@ const App = () => {
         {/* person - end */}
         {/* person - start */}
         <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
-          <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
+          <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30"> 
             <img
               src="https://th.bing.com/th/id/OIP.W-8OCFGMrwmG5JLI4c1ZvQHaEK?rs=1&pid=ImgDetMain"
               loading="lazy"
@@ -631,7 +632,7 @@ const App = () => {
         {/* person - end */}
         {/* person - start */}
         <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
-          <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
+          <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">
             <img
               src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/47aa61101334781.5f1c660e2b883.jpg"
               loading="lazy"
@@ -700,9 +701,9 @@ const App = () => {
             placeholder="Email"
             className="bg-gray-white w-full flex-1 rounded border border-gray-300 px-3 py-2 text-gray-800 placeholder-gray-400 outline-none ring-indigo-300 transition duration-100 focus:ring"
           />
-          <button className="inline-block rounded bg-indigo-500 px-8 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
+          <Link href={'/login'} className="inline-block rounded bg-indigo-500 px-8 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
             Send
-          </button>
+          </Link>
         </form>
         <p className="text-center text-xs text-gray-400">
           By signing up to our newsletter you agree to our{" "}

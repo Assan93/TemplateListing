@@ -1,8 +1,66 @@
-import React from 'react'
+"use client";
 
-const signup = () => {
+import { useFormik } from "formik";
+import React from "react";
+import * as Yup from "yup";
+import { Helix, Infinity } from "ldrs/react";
+import "ldrs/react/Infinity.css";
+import toast from "react-hot-toast";
+import axios from "axios";
+
+const SignupSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string()
+    .required("Password is required")
+    .matches(/[a-z]/, "lowercase letter is required")
+    .matches(/[A-Z]/, "uppercase letter is required")
+    .matches(/[0-9]/, "number is required")
+    .matches(/\W/, "special character is required")
+    .min(8, "Password must be at least 8 characters long"),
+  confirmPassword: Yup.string()
+    .required("Confirm Password is required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+});
+
+const SignupPage = () => {
+  const signForm = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      console.log(values);
+
+      try {
+        const res = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/user/add`,
+          values
+        );
+
+        console.log(res.data);
+        console.log(res.status);
+        console.log(res.statusText);
+        toast.success("User Registered Successfully!");
+      } catch (error) {
+        if (error?.response?.data?.code === 11000) {
+          toast.erreor("Email Already Exists!");
+        } else {
+          toast.error("Some Error Occured!");
+          console.log(errors);
+        }
+      }
+    },
+  });
+
+
   return (
-    <div>
+    <>
       <div className="lg:px-130 md:px-50 bg-black text-white border border-gray-200 rounded-xl shadow-2xs px-130 py-6">
   <div className="p-4 sm:p-7 px-130">
     <div className="text-center">
@@ -29,7 +87,7 @@ const signup = () => {
       <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6">Or</div>
 
       {/* Form */}
-      <form>
+      <form onSubmit={signForm.handleSubmit}>
         <div className="grid gap-y-4">
           {/* Form Group */}
           <div>
@@ -37,6 +95,8 @@ const signup = () => {
             <div className="relative">
               <input type="Name" 
               id="Name" 
+              onChange={signForm.handleChange}
+              value={signForm.values.name}
 
                className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                 required aria-describedby="email-error" />
@@ -50,13 +110,15 @@ const signup = () => {
           </div>
           {/* End Form Group */}
 
-          {/* Form Group */}
+        
           {/* Form Group */}
           <div>
             <label htmlFor="email" className="block text-sm mb-2">Email address</label>
             <div className="relative">
               <input type="email"
                id="email"
+               onChange={signForm.handleSubmit}
+               value={signForm.values.email}
 
                 className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" 
                 required aria-describedby="email-error" />
@@ -70,6 +132,8 @@ const signup = () => {
           </div>
           {/* End Form Group */}
 
+          {/*Password*/}
+
           <div>
             <div className="flex flex-wrap justify-between items-center gap-2">
               <label htmlFor="password" className="block text-sm mb-2">Password</label>
@@ -78,6 +142,8 @@ const signup = () => {
             <div className="relative">
               <input type="password"
                id="password"
+               onChange={signForm.handleSubmit}
+               value={signForm.values.password}
                
                  className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                   required aria-describedby="password-error" />
@@ -90,9 +156,31 @@ const signup = () => {
             </div>
             <p className="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters required</p>
           </div>
-          {/* End Form Group */}
+          {/* End Form Password */}
+          {/* Add this after the password input field div */}
+<div>
+  <label htmlFor="confirmPassword" className="block text-sm mb-2">Confirm Password</label>
+  <div className="relative">
+    <input 
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      onChange={signForm.handleChange}
+      value={signForm.values.confirmPassword}
+      className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+      required 
+      aria-describedby="confirmPassword-error" 
+    />
+    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+      <svg className="size-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+      </svg>
+    </div>
+  </div>
+  <p className="hidden text-xs text-red-600 mt-2" id="confirmPassword-error">Passwords must match</p>
+</div>
 
-          {/* Checkbox */}
+{/* Checkbox */}
           <div className="flex items-center">
             <div className="flex">
               <input 
@@ -114,8 +202,9 @@ const signup = () => {
     </div>
   </div>
 </div>
-    </div>
-  )
-}
+    </>
+  );
 
-export default signup
+};
+
+export default SignupPage

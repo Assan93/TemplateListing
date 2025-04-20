@@ -1,4 +1,4 @@
-import Navbar from '@/components/nabvar'
+
 import React from 'react'
 
 const Aboutus = () => {
@@ -10,7 +10,12 @@ const Aboutus = () => {
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
-    />
+      />
+      
+              {/*<Link
+                href="/signup"></Link>*/}
+
+
          {/* About Us Section */}
     <section className="container mx-auto px-6 py-12">
       <div className="text-center">
@@ -26,10 +31,13 @@ const Aboutus = () => {
             src="https://th.bing.com/th/id/OIP.LskQ7SN-4_O66dXJFJr-yQHaDz?rs=1&pid=ImgDetMain"
             alt="About Us"
             className="rounded-xl shadow-lg"
-          />
+            />
         </div>
-        {/* Content Section */}
-        <div>
+
+
+            {/* Content Section */}
+
+            <div>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Who We Are
           </h2>
