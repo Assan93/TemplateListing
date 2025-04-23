@@ -25,7 +25,7 @@ const App = () => {
           >
             <path d="M96 0V47L48 94H0V47L48 0H96Z" />
           </svg>
-          Flowrift
+          Template World
         </a>
         {/* logo - end */}
         {/* nav - start */}
@@ -478,9 +478,9 @@ const App = () => {
         </p>
       </div>
       {/* text - end */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-8">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-8 ">
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
+        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8 ">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">   
             <img
               src="https://cdn-images-1.medium.com/max/1600/1*a8JAtWTliCTBLIHLZfjydw.png"
@@ -497,7 +497,7 @@ const App = () => {
             <span className="text-lg font-bold text-gray-900">Free</span>
           </div>
 
-          <div>
+          <div className=''>
             <div className="text-center font-bold text-indigo-500 md:text-lg">
               Modern Dashbord
             </div>

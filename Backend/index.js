@@ -2,6 +2,7 @@
 const express = require('express');
 require('dotenv').config();
 const UserRouter = require('./routers/UserRouters');
+const TemplateRouter = require('./routers/templateRouters');
 const cors = require('cors');
 
 // initialize express
@@ -15,6 +16,7 @@ app.use(cors({
 }))
 app.use(express.json());
 app.use('/user', UserRouter);
+app.use('/template', TemplateRouter);
 
 // endpoints or routes
 app.get('/', (req, res) => {

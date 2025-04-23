@@ -36,7 +36,7 @@ const ManageUser = () => {
         <table className='w-full mt-10 border border-gray-300'>
           <thead className='bg-gray-200'>
             <tr>
-              <th className='p-2'>ID</th>
+              <th className='p-2'>Id</th>
               <th className='p-2'>Name</th>
               <th className='p-2'>Email</th>
               <th className='p-2'>City</th>
