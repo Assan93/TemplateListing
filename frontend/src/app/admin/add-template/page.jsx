@@ -55,11 +55,45 @@ const TemplateAdd = () => {
     },
   });
 
-  return (
+  
+  // State to manage the image upload progress//
+  const imageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) {
+      toast.error('Please select a file to upload.');
+      return;
+    }
+
+    setUploading(true);
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'Template'); // Replace with your Cloudinary upload preset
+    formData.append('cloud_name', 'dbqjxlvja'); // Replace with your Cloudinary cloud name
+    
+    try {
+      const response = await axios.post(
+        'https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', // Replace with your Cloudinary API endpoint
+        formData
+      );
+
+      if (response.data.secure_url) {
+        templateForm.setFieldValue('image', response.data.secure_url);
+        toast.success('Image uploaded successfully!');
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      toast.error('Failed to upload image.');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  
+ return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow">
         <h1 className="text-2xl font-bold mb-6">Add New Template</h1>
-        
         <form onSubmit={templateForm.handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">Title</label>
