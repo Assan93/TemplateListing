@@ -1,7 +1,7 @@
 'use client';
 
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
@@ -27,6 +27,9 @@ const TemplateSchema = Yup.object().shape({
 });
 
 const TemplateAdd = () => {
+
+  const [uploading, setUploading] = useState(false);
+
   const templateForm = useFormik({
     initialValues: {
       title: '',
@@ -73,7 +76,7 @@ const TemplateAdd = () => {
     
     try {
       const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', // Replace with your Cloudinary API endpoint
+        'https://api.cloudinary.com/v1_1/dbqjxlvja/image/upload', // Replace with your Cloudinary API endpoint
         formData
       );
 
@@ -89,7 +92,31 @@ const TemplateAdd = () => {
     }
   };
 
-  
+  <div>
+  <label className="block text-sm font-medium text-gray-700">Image Upload</label>
+  <input
+    type="file"
+    accept="image/*"
+    onChange={imageUpload}
+    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+  />
+  {uploading && (
+    <p className="text-blue-500 text-sm mt-1">Uploading...</p>
+  )}
+  {templateForm.values.image && (
+    <img
+      src={templateForm.values.image}
+      alt="Preview"
+      className="mt-2 h-32 w-32 object-cover rounded-lg"
+    />
+  )}
+  {templateForm.touched.image && templateForm.errors.image && (
+    <p className="text-red-500 text-xs mt-1">{templateForm.errors.image}</p>
+  )}
+</div>
+
+
+
  return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow">
@@ -163,10 +190,8 @@ const TemplateAdd = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700">Image URL</label>
             <input
-              type="url"
-              name="image"
-              onChange={templateForm.handleChange}
-              onBlur={templateForm.handleBlur}
+              type="file"
+              onChange={imageUpload}
               value={templateForm.values.image}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />

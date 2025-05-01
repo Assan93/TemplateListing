@@ -3,7 +3,7 @@ import React from 'react'
 
 const Aboutus = () => {
   return (
-    <div><>
+    <div className='bg-emerald-50'><>
     <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Template Listing</title>
@@ -12,12 +12,8 @@ const Aboutus = () => {
       rel="stylesheet"
       />
       
-              {/*<Link
-                href="/signup"></Link>*/}
-
-
-         {/* About Us Section */}
-    <section className="container mx-auto px-6 py-12">
+       {/* About Us Section */}
+    <section className="container mx-auto px-6">
       <div className="text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
         <p className="text-lg text-gray-600">
@@ -26,9 +22,9 @@ const Aboutus = () => {
       </div>
       <div className="mt-12 grid md:grid-cols-2 gap-8 items-center">
         {/* Image Section */}
-        <div>
+        <div className=''>
           <img
-            src="https://th.bing.com/th/id/OIP.LskQ7SN-4_O66dXJFJr-yQHaDz?rs=1&pid=ImgDetMain"
+            src="https://s3.envato.com/files/381515958/Coshunie_IMG/Slide29.png"
             alt="About Us"
             className="rounded-xl shadow-lg"
             />

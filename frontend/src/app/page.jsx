@@ -3,10 +3,10 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-orange-50'>
       <>
   {/* hero - start */}
-  <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
+  <div className="pb-6 sm:pb-8 lg:pb-12">
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
       <header className="mb-8 flex items-center justify-between py-4 md:mb-12 md:py-8 xl:mb-16">
         {/* logo - start */}
@@ -33,18 +33,18 @@ const App = () => {
           <a href="#" className="text-lg font-semibold text-indigo-5cd00">
             Home
           </a>
-          <a
-            href="#"
+          <Link
+            href="/features"
             className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
           >
             Features
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/pricing"
             className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
           >
             Pricing
-          </a>
+          </Link>
           <Link
             href='/about'
             className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
@@ -54,12 +54,12 @@ const App = () => {
         </nav>
         {/* nav - end */}
         {/* buttons - start */}
-        <a
-          href="#"
+        <Link
+          href="/contact-sales"
           className="hidden rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
         >
           Contact Sales
-        </a>
+        </Link>
         <button
           type="button"
           className="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:hidden"
@@ -123,7 +123,7 @@ const App = () => {
   </div>
   {/* hero - end */}
   {/* features - start */}
-  <div className="bg-white py-6 sm:py-8 lg:py-12">
+  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
       {/* text - start */}
       <div className="mb-10 md:mb-16">
@@ -341,7 +341,7 @@ const App = () => {
   </div>
   {/* features - end */}
   {/* logo cloud - start */}
-  <div className="bg-white py-6 sm:py-8 lg:py-12">
+  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
       <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
         Trusted by the best
@@ -413,7 +413,7 @@ const App = () => {
   </div>
   {/* logo cloud - end */}
   {/* stats - start */}
-  <div className="bg-white py-6 sm:py-8 lg:py-12">
+  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-xl px-4 md:px-8">
       {/* text - start */}
       <div className="mb-10 md:mb-16">
@@ -466,7 +466,7 @@ const App = () => {
   </div>
   {/* stats - end */}
   {/* team - start */}
-  <div className="bg-white py-6 sm:py-8 lg:py-12">
+  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-xl px-4 md:px-8">
       {/* text - start */}
       <div className="mb-10 md:mb-16">
@@ -478,9 +478,9 @@ const App = () => {
         </p>
       </div>
       {/* text - end */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-8 ">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-8 shadow-xl/30 box-shadow: var(--shadow-xl) ">
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8 ">
+        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6 ">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">   
             <img
               src="https://cdn-images-1.medium.com/max/1600/1*a8JAtWTliCTBLIHLZfjydw.png"
@@ -491,14 +491,14 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className="py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
               Dashboard
             </span>
             <span className="text-lg font-bold text-gray-900">Free</span>
           </div>
 
           <div className=''>
-            <div className="text-center font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
               Modern Dashbord
             </div>
             <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
@@ -506,7 +506,7 @@ const App = () => {
             </p>
             <div className="flex items-center justify-between">
             <span className="text-sm text-gray-500">2,345 downloads</span>
-            <button className="flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -531,7 +531,7 @@ const App = () => {
         
         {/* person - end */}
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
+        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30"> 
             <img
               src="https://images.yourstory.com/cs/2/fb7ee200-7579-11e9-995c-171c030e4eb8/Ecomm-min1560422084936.jpg?fm=png&auto=format"
@@ -542,13 +542,13 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className="py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
               E-commerce
             </span>
             <span className="text-lg font-bold text-gray-900">$49</span>
           </div>
            <div>
-            <div className="text-center font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
               E-commerce Store 
             </div>
             <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
@@ -556,7 +556,7 @@ const App = () => {
             </p>
             <div className="flex items-center justify-between">
             <span className="text-sm text-gray-500">1,890 downloads</span>
-            <button className="flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -580,7 +580,7 @@ const App = () => {
         </div>
         {/* person - end */}
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
+        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30"> 
             <img
               src="https://th.bing.com/th/id/OIP.W-8OCFGMrwmG5JLI4c1ZvQHaEK?rs=1&pid=ImgDetMain"
@@ -591,7 +591,7 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className="bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
               Blog
             </span>
             <span className="text-lg font-bold text-gray-900">Free</span>
@@ -599,7 +599,7 @@ const App = () => {
 
 
           <div>
-            <div className="text-center font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
               Personal Blog
             </div>
             <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
@@ -607,7 +607,7 @@ const App = () => {
             </p>
             <div className="flex items-center justify-between">
             <span className="text-sm text-gray-500">3,210 downloads</span>
-            <button className="flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -631,7 +631,7 @@ const App = () => {
         </div>
         {/* person - end */}
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
+        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">
             <img
               src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/47aa61101334781.5f1c660e2b883.jpg"
@@ -642,14 +642,14 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className=" bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
               Portfolio
             </span>
             <span className="text-lg font-bold text-gray-900">$29</span>
           </div>
 
           <div>
-            <div className="text-center font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
               Creative Portfolio
             </div>
             <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
@@ -657,7 +657,7 @@ const App = () => {
             </p>
             <div className="flex items-center justify-between">
             <span className="text-sm text-gray-500">1,567 downloads</span>
-            <button className="flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -685,7 +685,7 @@ const App = () => {
 
   {/* testemonials - end */}
   {/* newsletter - start */}
-  <div className="bg-white py-6 sm:py-8 lg:py-12">
+  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
       <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 sm:p-8">
         <div className="mb-4 sm:mb-8">
