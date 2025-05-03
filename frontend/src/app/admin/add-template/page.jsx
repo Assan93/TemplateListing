@@ -48,6 +48,7 @@ const TemplateAdd = () => {
         );
 
         if (response.status === 200) {
+          console.log('Template added successfully:', response.data);
           toast.success('Template added successfully!');
           resetForm();
         }
@@ -84,7 +85,7 @@ const TemplateAdd = () => {
         templateForm.setFieldValue('image', response.data.secure_url);
         toast.success('Image uploaded successfully!');
       }
-    } catch (error) {
+    } catch (error) { 
       console.error('Error uploading image:', error);
       toast.error('Failed to upload image.');
     } finally {
@@ -188,10 +189,12 @@ const TemplateAdd = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Image URL</label>
+            <label className="block text-sm font-medium text-gray-700" id='imageupload'>Image URL
+              <input type="file" onChange={imageUpload} hidden id='imageupload'/>
+            </label>
             <input
-              type="file"
-              onChange={imageUpload}
+              type="text"
+              onChange={templateForm.handleChange}
               value={templateForm.values.image}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />

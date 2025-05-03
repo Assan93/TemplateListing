@@ -25,13 +25,13 @@ const App = () => {
           >
             <path d="M96 0V47L48 94H0V47L48 0H96Z" />
           </svg>
-          Template World
+          Template Nest
         </a>
         {/* logo - end */}
         {/* nav - start */}
         <nav className="hidden gap-12 lg:flex">
           <a href="#" className="text-lg font-semibold text-indigo-5cd00">
-            Home
+           { /* home */}
           </a>
           <Link
             href="/features"
@@ -748,7 +748,7 @@ const App = () => {
               >
                 <path d="M96 0V47L48 94H0V47L48 0H96Z" />
               </svg>
-              Flowrift
+              Template Nest
             </a>
           </div>
           {/* logo - end */}

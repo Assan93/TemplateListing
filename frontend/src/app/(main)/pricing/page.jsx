@@ -9,7 +9,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: 'Basic',
-      price: 29,
+      price: 0,
       period: 'month',
       description: 'Perfect for starters and small projects',
       features: [
@@ -19,7 +19,7 @@ const Pricing = () => {
         'Preview access',
         'Commercial license',
       ],
-      color: 'gray',
+      color: 'indigo',
     },
     {
       name: 'Professional',
