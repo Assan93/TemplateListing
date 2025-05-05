@@ -4,10 +4,11 @@ const mySchema = new Schema({
     category: String,
     description: String,
     price: Number,
-    rating: Number,
     tags: String,
     author: String,
     createdAt: Date,
+    image: String,
+    cloudinary_id: String,
 })
 
-module.exports = (model('Template', mySchema))
+module.exports = model('Template', mySchema)
