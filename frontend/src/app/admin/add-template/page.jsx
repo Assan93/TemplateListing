@@ -5,9 +5,10 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 const TemplateSchema = Yup.object().shape({
-  title: Yup.string()
+  name: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Title is required'),
@@ -21,10 +22,15 @@ const TemplateSchema = Yup.object().shape({
     .min(0, 'Price cannot be negative'),
   image: Yup.string()
     .required('Image URL is required'),
+  rating: Yup.number()
+    .min(1, 'Minimum rating is 1')
+    .max(5, 'Maximum rating is 5')
+    .required('Rating is required'),
 });
 
 const TemplateAdd = () => {
   const [uploading, setUploading] = useState(false);
+  const router = useRouter(); // Add this
 
   const templateForm = useFormik({
     initialValues: {
@@ -32,8 +38,8 @@ const TemplateAdd = () => {
       description: '',
       category: '',
       price: '',
-      image: ''
-      
+      image: '',
+      rating: '' // <-- Add this line
     },
     validationSchema: TemplateSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -46,6 +52,7 @@ const TemplateAdd = () => {
         if (response.status === 200) {
           toast.success('Template added successfully!');
           resetForm();
+          router.push('/browse');
         }
       } catch (error) {
         console.error(error);
@@ -56,23 +63,19 @@ const TemplateAdd = () => {
 
   const imageUpload = async (e) => {
     const file = e.target.files[0];
-    if (!file) {
-      toast.error('Please select a file to upload.');
-      return;
-    }
+    if (!file) return;
 
     setUploading(true);
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'your_unsigned_upload_preset'); // Replace with your actual unsigned preset
+    formData.append('upload_preset', 'Template'); // <-- use your unsigned preset name
 
     try {
       const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/dbqjxlvja/image/upload', // Replace with your actual cloud name
+        'https://api.cloudinary.com/v1_1/dbqjxlvja/image/upload', // <-- your cloud name
         formData
       );
-
       if (response.data.secure_url) {
         templateForm.setFieldValue('image', response.data.secure_url);
         toast.success('Image uploaded successfully!');
@@ -91,17 +94,17 @@ const TemplateAdd = () => {
         <h1 className="text-2xl font-bold mb-6">Add New Template</h1>
         <form onSubmit={templateForm.handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Title</label>
+            <label className="block text-sm font-medium text-gray-700">Name</label>
             <input
               type="text"
               name="name"
               onChange={templateForm.handleChange}
               onBlur={templateForm.handleBlur}
-              value={templateForm.values.title}
+              value={templateForm.values.name}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
-            {templateForm.touched.title && templateForm.errors.title && (
-              <p className="text-red-500 text-xs mt-1">{templateForm.errors.title}</p>
+            {templateForm.touched.name && templateForm.errors.name && (
+              <p className="text-red-500 text-xs mt-1">{templateForm.errors.name}</p>
             )}
           </div>
 
@@ -152,6 +155,24 @@ const TemplateAdd = () => {
             />
             {templateForm.touched.price && templateForm.errors.price && (
               <p className="text-red-500 text-xs mt-1">{templateForm.errors.price}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Rating (1-5)</label>
+            <input
+              type="number"
+              name="rating"
+              min={1}
+              max={5}
+              step={0.1}
+              onChange={templateForm.handleChange}
+              onBlur={templateForm.handleBlur}
+              value={templateForm.values.rating}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+            {templateForm.touched.rating && templateForm.errors.rating && (
+              <p className="text-red-500 text-xs mt-1">{templateForm.errors.rating}</p>
             )}
           </div>
 
