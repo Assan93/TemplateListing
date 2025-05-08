@@ -89,8 +89,8 @@ const TemplateAdd = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
-      <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow">
+    <div className="min-h-screen bg-emerald-50 py-8">
+      <div className="max-w-2xl mx-auto bg-emerald-50 p-8 rounded-lg shadow">
         <h1 className="text-2xl font-bold mb-6">Add New Template</h1>
         <form onSubmit={templateForm.handleSubmit} className="space-y-6">
           <div>
