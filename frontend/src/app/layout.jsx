@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import PrelineScript from "@/components/prelineScript";
+import Navbar from "@/components/Nabvar";
 
 
 const geistSans = Geist({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         
         <PrelineScript />
         <Toaster />
+        <Navbar/>
         {children}
       </body>
     </html>

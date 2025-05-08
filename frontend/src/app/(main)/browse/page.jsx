@@ -7,6 +7,8 @@ import Link from 'next/link';
 const Browse = () => {
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('all');
 
   useEffect(() => {
     const fetchTemplates = async () => {
@@ -23,18 +25,23 @@ const Browse = () => {
     fetchTemplates();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
+  const categories = [
+    'all',
+    ...Array.from(new Set(templates.map((t) => t.category).filter(Boolean))),
+  ];
+
+  const filteredTemplates = templates.filter((template) => {
+    const matchesCategory = category === 'all' || template.category === category;
+    const matchesSearch =
+      template.name.toLowerCase().includes(search.toLowerCase()) ||
+      template.description.toLowerCase().includes(search.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   // Helper to render stars
   const renderStars = (rating) => {
     const stars = [];
-    const rounded = Math.round(rating * 2) / 2; // round to nearest 0.5
+    const rounded = Math.round(rating * 2) / 2;
     for (let i = 1; i <= 5; i++) {
       if (i <= rounded) {
         stars.push(
@@ -53,57 +60,86 @@ const Browse = () => {
     return stars;
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
   return (
     <div className='bg-emerald-50 h-full'>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8">Browse Templates</h1>
-        
+
+        {/* Search and Filter */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          <input
+            type="text"
+            placeholder="Search templates..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>{cat === 'all' ? 'All Categories' : cat}</option>
+            ))}
+          </select>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {templates.map((template) => (
-            <Link 
-              href={`/template-detail/${template._id}`}
-              key={template._id}
-              className="cursor-pointer"
-            >
-              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="aspect-w-16 aspect-h-9">
-                  <img
-                    src={template.image || 'https://via.placeholder.com/300x200'}
-                    alt={template.name}
-                    className="object-cover w-full h-48"
-                  />
-                </div>
-                
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold mb-2">{template.name}</h3>
-                  <p className="text-gray-600 text-sm mb-2 line-clamp-2">
-                    {template.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="text-blue-600 font-bold">
-                      ${template.price}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {template.category}
-                    </span>
+          {filteredTemplates.length === 0 ? (
+            <div className="col-span-full text-center text-gray-500">No templates found.</div>
+          ) : (
+            filteredTemplates.map((template) => (
+              <Link 
+                href={`/template-detail/${template._id}`}
+                key={template._id}
+                className="cursor-pointer"
+              >
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img
+                      src={template.image || 'https://via.placeholder.com/300x200'}
+                      alt={template.name}
+                      className="object-cover w-full h-48"
+                    />
                   </div>
-          
-                  <div className="mt-4 flex items-center justify-between">
-                    <div className="flex items-center">
-                      {renderStars(template.rating || 0)}
-                      <span className="ml-1 text-sm text-gray-600">
-                        {typeof template.rating === 'number' ? template.rating.toFixed(1) : 'N/A'}
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold mb-2">{template.name}</h3>
+                    <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+                      {template.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-4">
+                      <span className="text-blue-600 font-bold">
+                        ${template.price}
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        {template.category}
                       </span>
                     </div>
-                    <span className="text-xs text-gray-500">
-                      By {template.author}
-                    </span>
+                    <div className="mt-4 flex items-center justify-between">
+                      <div className="flex items-center">
+                        {renderStars(template.rating || 0)}
+                        <span className="ml-1 text-sm text-gray-600">
+                          {typeof template.rating === 'number' ? template.rating.toFixed(1) : 'N/A'}
+                        </span>
+                      </div>
+                      <span className="text-xs text-gray-500">
+                        By {template.author}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </div>

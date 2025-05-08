@@ -1,9 +1,9 @@
- import Navbar from '@/components/nabvar';
+ import Navbar from '@/components/Nabvar';
 import React from 'react'
 const Layout = ({ children }) => {
      return (
          <>
-         <Navbar/>
+         
           {children}
          </>
      )
