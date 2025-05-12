@@ -69,7 +69,7 @@ const Browse = () => {
   }
 
   return (
-    <div className='bg-emerald-50 h-full'>
+    <div className="min-h-screen w-full bg-emerald-50">
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8">Browse Templates</h1>
 
@@ -80,12 +80,12 @@ const Browse = () => {
             placeholder="Search templates..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full md:w-1/2 px-4 py-2 border border-black bg-white text-black rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
           />
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full md:w-1/4 px-4 py-2 border border-black bg-white text-black rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>{cat === 'all' ? 'All Categories' : cat}</option>
