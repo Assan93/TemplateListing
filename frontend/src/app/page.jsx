@@ -3,34 +3,34 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div className='bg-orange-50'>
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}>
       <>
   {/* hero - start */}
   <div className="pb-6 sm:pb-8 lg:pb-12">
-    <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div className="mx-auto max-w-screen-2xl px-8 md:px-8">
       
       <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
         {/* content - start */}
         <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
-          <p className="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">
+          <p className="mb-4 font-semibold text-yellow-400 md:mb-6 md:text-lg xl:text-xl">
             Explore Template or Get Started
           </p>
-          <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
+          <h1 className="mb-8 text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">
             Find Perfect Templates for Your Next Project!
           </h1>
-          <p className="mb-8 leading-relaxed text-gray-500 md:mb-12 lg:w-4/5 xl:text-lg">
-            Your one-stop destination for discovering high-quality, professionally designed templates. Our carefullly curated collection ensures that you can easily explore, compare, and download the perfect template to accelerate your project.
+          <p className="mb-8 leading-relaxed text-gray-300 md:mb-12 lg:w-4/5 xl:text-lg">
+            Your one-stop destination for discovering high-quality, professionally designed templates. Our carefully curated collection ensures that you can easily explore, compare, and download the perfect template to accelerate your project.
           </p>
           <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start">
             <Link
-              href="/signup"
-              className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+              href="/login"
+              className="inline-block rounded-lg bg-yellow-500 px-8 py-3 text-center text-sm font-semibold text-black outline-none ring-yellow-300 transition duration-100 hover:bg-yellow-600 focus-visible:ring active:bg-yellow-700 md:text-base"
             >
               Start now
             </Link>
             <a
               href="#"
-              className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
+              className="inline-block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-gray-200 outline-none ring-yellow-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:text-gray-100 md:text-base"
             >
               Take tour
             </a>
@@ -38,13 +38,23 @@ const App = () => {
         </div>
         {/* content - end */}
         {/* image - start */}
-        <div className="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-150 lg:w-200 md:h-150 sm:h-96">
-          <img
-            src="https://img.freepik.com/premium-psd/desktop-screen-with-website-presentation-mockup-isolated_453592-107.jpg"
-            loading="lazy"
-            alt="Photo by Fakurian Design"
-            className="h-full w-full object-cover object-center"
-          />
+        <div className="flex items-center justify-center py-8">
+          <div
+            className="overflow-hidden rounded-lg bg-gray-900 shadow-lg"
+            style={{
+              width: "800px",
+              height: "475px",
+              maxWidth: "100%",
+            }}
+          >
+            <img
+              src="https://miro.medium.com/v2/resize:fit:1003/1*ZEYQM_eJurp-dGbEbDB-Dg.png"
+              loading="lazy"
+              alt="Photo by Fakurian Design"
+              className="h-full w-full object-cover object-center"
+              style={{ minWidth: "100%", minHeight: "100%" }}
+            />
+          </div>
         </div>
         {/* image - end */}
       </section>
@@ -52,14 +62,17 @@ const App = () => {
   </div>
   {/* hero - end */}
   {/* features - start */}
-  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
+  <div
+    className="py-2 sm:py-8 lg:py-12"
+    style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}
+  >
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
       {/* text - start */}
       <div className="mb-10 md:mb-16">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+        <h2 className="mb-4 text-center text-2xl font-bold text-yellow-400 md:mb-6 lg:text-3xl">
           Our competitive advantage
         </h2>
-        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+        <p className="mx-auto max-w-screen-md text-center text-gray-300 md:text-lg">
           This is a section of some simple filler text, also known as
           placeholder text. It shares some characteristics of a real written
           text but is random or otherwise generated.
@@ -86,7 +99,7 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold md:text-xl">Growth</h3>
+            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Growth</h3>
             <p className="mb-2 text-gray-500">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
@@ -119,7 +132,7 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold md:text-xl">Security</h3>
+            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Security</h3>
             <p className="mb-2 text-gray-500">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
@@ -152,8 +165,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold md:text-xl">Cloud</h3>
-            <p className="mb-2 text-gray-500">
+            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Cloud</h3>
+            <p className="mb-2 text-gray-900">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -185,7 +198,7 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold md:text-xl">Speed</h3>
+            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Speed</h3>
             <p className="mb-2 text-gray-500">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
@@ -218,7 +231,7 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold md:text-xl">Support</h3>
+            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Support</h3>
             <p className="mb-2 text-gray-500">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
@@ -251,8 +264,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold md:text-xl">Dark Mode</h3>
-            <p className="mb-2 text-gray-500">
+            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Dark Mode</h3>
+            <p className="mb-2 text-gray-900">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -270,12 +283,15 @@ const App = () => {
   </div>
   {/* features - end */}
   {/* logo cloud - start */}
-  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
+  <div
+    className="py-6 sm:py-8 lg:py-12"
+    style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}
+  >
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-      <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
+      <h2 className="mb-4 text-center text-2xl font-bold text-yellow-400 md:mb-8 lg:text-3xl">
         Trusted by the best
       </h2>
-      <div className="grid grid-cols-2 gap-6 rounded-lg bg-gray-100 p-6 sm:h-40 sm:content-evenly md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-6 rounded-lg bg-gray-900/80 p-6 sm:h-40 sm:content-evenly md:grid-cols-4">
         {/* logo - start */}
         <div className="flex justify-center text-gray-400">
           <svg
@@ -316,7 +332,7 @@ const App = () => {
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M43.2727 31C50.3636 31 54.6591 26.6136 54.6591 19.3409C54.6591 12.0909 50.3636 7.72727 43.3409 7.72727H35.0227V31H43.2727ZM39.9432 26.7841V11.9432H43.0795C47.4432 11.9432 49.75 14.1705 49.75 19.3409C49.75 24.5341 47.4432 26.7841 43.0682 26.7841H39.9432ZM63.1903 31.3295C65.7699 31.3295 67.4403 30.2045 68.2926 28.5795H68.429V31H73.0199V19.2273C73.0199 15.0682 69.4972 13.3182 65.6108 13.3182C61.429 13.3182 58.679 15.3182 58.0085 18.5L62.4858 18.8636C62.8153 17.7045 63.8494 16.8523 65.5881 16.8523C67.2358 16.8523 68.179 17.6818 68.179 19.1136V19.1818C68.179 20.3068 66.9858 20.4545 63.9517 20.75C60.4972 21.0682 57.3949 22.2273 57.3949 26.125C57.3949 29.5795 59.8608 31.3295 63.1903 31.3295ZM64.5767 27.9886C63.0881 27.9886 62.0199 27.2955 62.0199 25.9659C62.0199 24.6023 63.1449 23.9318 64.8494 23.6932C65.9062 23.5455 67.6335 23.2955 68.2131 22.9091V24.7614C68.2131 26.5909 66.7017 27.9886 64.5767 27.9886ZM86.0597 13.5455H82.7756V9.36364H77.9347V13.5455H75.5483V17.1818H77.9347V26.2727C77.9119 29.6932 80.2415 31.3864 83.7528 31.2386C85.0028 31.1932 85.8892 30.9432 86.3778 30.7841L85.6165 27.1818C85.3778 27.2273 84.8665 27.3409 84.4119 27.3409C83.446 27.3409 82.7756 26.9773 82.7756 25.6364V17.1818H86.0597V13.5455ZM94.1903 31.3295C96.7699 31.3295 98.4403 30.2045 99.2926 28.5795H99.429V31H104.02V19.2273C104.02 15.0682 100.497 13.3182 96.6108 13.3182C92.429 13.3182 89.679 15.3182 89.0085 18.5L93.4858 18.8636C93.8153 17.7045 94.8494 16.8523 96.5881 16.8523C98.2358 16.8523 99.179 17.6818 99.179 19.1136V19.1818C99.179 20.3068 97.9858 20.4545 94.9517 20.75C91.4972 21.0682 88.3949 22.2273 88.3949 26.125C88.3949 29.5795 90.8608 31.3295 94.1903 31.3295ZM95.5767 27.9886C94.0881 27.9886 93.0199 27.2955 93.0199 25.9659C93.0199 24.6023 94.1449 23.9318 95.8494 23.6932C96.9062 23.5455 98.6335 23.2955 99.2131 22.9091V24.7614C99.2131 26.5909 97.7017 27.9886 95.5767 27.9886ZM114.207 31.2841C117.026 31.2841 118.491 29.6591 119.162 28.2045H119.366V31H124.139V7.72727H119.31V16.4773H119.162C118.514 15.0568 117.116 13.3182 114.196 13.3182C110.366 13.3182 107.128 16.2955 107.128 22.2955C107.128 28.1364 110.23 31.2841 114.207 31.2841ZM115.741 27.4318C113.366 27.4318 112.071 25.3182 112.071 22.2727C112.071 19.25 113.344 17.1705 115.741 17.1705C118.094 17.1705 119.412 19.1591 119.412 22.2727C119.412 25.3864 118.071 27.4318 115.741 27.4318ZM128.119 31H132.96V21.125C132.96 18.9773 134.528 17.5 136.665 17.5C137.335 17.5 138.256 17.6136 138.71 17.7614V13.4659C138.278 13.3636 137.676 13.2955 137.188 13.2955C135.233 13.2955 133.631 14.4318 132.994 16.5909H132.812V13.5455H128.119V31ZM141.213 31H146.054V13.5455H141.213V31ZM143.645 11.2955C145.088 11.2955 146.27 10.1932 146.27 8.84091C146.27 7.5 145.088 6.39773 143.645 6.39773C142.213 6.39773 141.031 7.5 141.031 8.84091C141.031 10.1932 142.213 11.2955 143.645 11.2955ZM159.318 13.5455H155.852V12.375C155.852 11.1932 156.33 10.5 157.75 10.5C158.33 10.5 158.92 10.625 159.307 10.75L160.159 7.11364C159.557 6.93182 158.227 6.63636 156.739 6.63636C153.455 6.63636 151.011 8.48864 151.011 12.2841V13.5455H148.545V17.1818H151.011V31H155.852V17.1818H159.318V13.5455ZM171.56 13.5455H168.276V9.36364H163.435V13.5455H161.048V17.1818H163.435V26.2727C163.412 29.6932 165.741 31.3864 169.253 31.2386C170.503 31.1932 171.389 30.9432 171.878 30.7841L171.116 27.1818C170.878 27.2273 170.366 27.3409 169.912 27.3409C168.946 27.3409 168.276 26.9773 168.276 25.6364V17.1818H171.56V13.5455Z" />
+            <path d="M43.2727 31C50.3636 31 54.6591 26.6136 54.6591 19.3409C54.6591 12.0909 50.3636 7.72727 43.3409 7.72727H35.0227V31H43.2727ZM39.9432 26.7841V11.9432H43.0795C47.4432 11.9432 49.75 14.1705 49.75 19.3409C49.75 24.5341 47.4432 26.7841 43.0682 26.7841H39.9432ZM63.1903 31.3295C65.7699 31.3295 67.4403 30.2045 68.2926 28.5795H68.429V31H73.0199V19.2273C73.0199 15.0682 69.4972 13.3182 65.6108 13.3182C61.429 13.3182 58.679 15.3182 58.0085 18.5L62.4858 18.8636C62.8153 17.7045 63.8494 16.8523 65.5881 16.8523C67.2358 16.8523 68.179 17.6818 68.179 19.1136V19.1818C68.179 20.3068 66.9858 20.4545 63.9517 20.75C60.4972 21.0682 57.3949 22.2273 57.3949 26.125C57.3949 29.5795 59.8608 31.3295 63.1903 31.3295ZM64.5767 27.9886C63.0881 27.9886 62.0199 27.2955 62.0199 25.9659C62.0199 24.6023 63.1449 23.9318 64.8494 23.6932C65.9062 23.5455 67.6335 23.2955 68.2131 22.9091V24.7614C68.2131 26.5909 66.7017 27.9886 64.5767 27.9886ZM86.0597 13.5455H82.7756V9.36364H77.9347V13.5455H75.5483V17.1818H77.9347V26.7273C77.9119 29.6932 80.2415 31.3864 83.7528 31.2386C85.0028 31.1932 85.8892 30.9432 86.3778 30.7841L85.6165 27.1818C85.3778 27.2273 84.8665 27.3409 84.4119 27.3409C83.446 27.3409 82.7756 26.9773 82.7756 25.6364V17.1818H86.0597V13.5455ZM94.1903 31.3295C96.7699 31.3295 98.4403 30.2045 99.2926 28.5795H99.429V31H104.02V19.2273C104.02 15.0682 100.497 13.3182 96.6108 13.3182C92.429 13.3182 89.679 15.3182 89.0085 18.5L93.4858 18.8636C93.8153 17.7045 94.8494 16.8523 96.5881 16.8523C98.2358 16.8523 99.179 17.6818 99.179 19.1136V19.1818C99.179 20.3068 97.9858 20.4545 94.9517 20.75C91.4972 21.0682 88.3949 22.2273 88.3949 26.125C88.3949 29.5795 90.8608 31.3295 94.1903 31.3295ZM95.5767 27.9886C94.0881 27.9886 93.0199 27.2955 93.0199 25.9659C93.0199 24.6023 94.1449 23.9318 95.8494 23.6932C96.9062 23.5455 98.6335 23.2955 99.2131 22.9091V24.7614C99.2131 26.5909 97.7017 27.9886 95.5767 27.9886ZM114.207 31.2841C117.026 31.2841 118.491 29.6591 119.162 28.2045H119.366V31H124.139V7.72727H119.31V16.4773H119.162C118.514 15.0568 117.116 13.3182 114.196 13.3182C110.366 13.3182 107.128 16.2955 107.128 22.2955C107.128 28.1364 110.23 31.2841 114.207 31.2841ZM115.741 27.4318C113.366 27.4318 112.071 25.3182 112.071 22.2727C112.071 19.25 113.344 17.1705 115.741 17.1705C118.094 17.1705 119.412 19.1591 119.412 22.2727C119.412 25.3864 118.071 27.4318 115.741 27.4318ZM128.119 31H132.96V21.125C132.96 18.9773 134.528 17.5 136.665 17.5C137.335 17.5 138.256 17.6136 138.71 17.7614V13.4659C138.278 13.3636 137.676 13.2955 137.188 13.2955C135.233 13.2955 133.631 14.4318 132.994 16.5909H132.812V13.5455H128.119V31ZM141.213 31H146.054V13.5455H141.213V31ZM143.645 11.2955C145.088 11.2955 146.27 10.1932 146.27 8.84091C146.27 7.5 145.088 6.39773 143.645 6.39773C142.213 6.39773 141.031 7.5 141.031 8.84091C141.031 10.1932 142.213 11.2955 143.645 11.2955ZM159.318 13.5455H155.852V12.375C155.852 11.1932 156.33 10.5 157.75 10.5C158.33 10.5 158.92 10.625 159.307 10.75L160.159 7.11364C159.557 6.93182 158.227 6.63636 156.739 6.63636C153.455 6.63636 151.011 8.48864 151.011 12.2841V13.5455H148.545V17.1818H151.011V31H155.852V17.1818H159.318V13.5455ZM171.56 13.5455H168.276V9.36364H163.435V13.5455H161.048V17.1818H163.435V26.2727C163.412 29.6932 165.741 31.3864 169.253 31.2386C170.503 31.1932 171.389 30.9432 171.878 30.7841L171.116 27.1818C170.878 27.2273 170.366 27.3409 169.912 27.3409C168.946 27.3409 168.276 26.9773 168.276 25.6364V17.1818H171.56V13.5455Z" />
             <rect y={26} width={24} height={5} />
             <rect x={9} y={17} width={15} height={5} />
           </svg>
@@ -342,14 +358,17 @@ const App = () => {
   </div>
   {/* logo cloud - end */}
   {/* stats - start */}
-  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
+  <div
+    className="py-6 sm:py-8 lg:py-12"
+    style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}
+  >
     <div className="mx-auto max-w-screen-xl px-4 md:px-8">
       {/* text - start */}
       <div className="mb-10 md:mb-16">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+        <h2 className="mb-4 text-center text-2xl font-bold text-yellow-400 md:mb-6 lg:text-3xl">
           Our Team by the numbers
         </h2>
-        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+        <p className="mx-auto max-w-screen-md text-center text-gray-300 md:text-lg">
           This is a section of some simple filler text, also known as
           placeholder text. It shares some characteristics of a real written
           text but is random or otherwise generated.
@@ -395,21 +414,24 @@ const App = () => {
   </div>
   {/* stats - end */}
   {/* team - start */}
-  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
+  <div
+    className="py-6 sm:py-8 lg:py-12"
+    style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}
+  >
     <div className="mx-auto max-w-screen-xl px-4 md:px-8">
       {/* text - start */}
       <div className="mb-10 md:mb-16">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+        <h2 className="mb-4 text-center text-2xl font-bold text-yellow-400 md:mb-6 lg:text-3xl">
           Template Gallery
         </h2>
-        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+        <p className="mx-auto max-w-screen-md text-center text-gray-300 md:text-lg">
           Discover and download beautiful template for your next project
         </p>
       </div>
       {/* text - end */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-8 shadow-xl/30 box-shadow: var(--shadow-xl) ">
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6 ">
+        <div className="flex flex-col items-center rounded-lg bg-zinc-800 p-4 lg:p-6 ">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">   
             <img
               src="https://cdn-images-1.medium.com/max/1600/1*a8JAtWTliCTBLIHLZfjydw.png"
@@ -420,21 +442,21 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className="py-1 bg-bray-300 text-indigo-600 rounded-full text-sm font-medium">
               Dashboard
             </span>
-            <span className="text-lg font-bold text-gray-900">Free</span>
+            <span className="text-lg font-bold text-white">Free</span>
           </div>
 
           <div className=''>
-            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-yellow-400 md:text-lg">
               Modern Dashbord
             </div>
-            <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
+            <p className="mb-3 text-center text-sm text-white md:mb-4 md:text-base">
               Clean and modern admin dashboard template with dark made support
             </p>
             <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500">2,345 downloads</span>
+            <span className="text-sm text-white">2,345 downloads</span>
             <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
@@ -460,7 +482,7 @@ const App = () => {
         
         {/* person - end */}
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6">
+        <div className="flex flex-col items-center rounded-lg bg-zinc-800 p-4 lg:p-6">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30"> 
             <img
               src="https://images.yourstory.com/cs/2/fb7ee200-7579-11e9-995c-171c030e4eb8/Ecomm-min1560422084936.jpg?fm=png&auto=format"
@@ -471,20 +493,20 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className="py-1 bg-bkack text-indigo-600 rounded-full text-sm font-medium">
               E-commerce
             </span>
-            <span className="text-lg font-bold text-gray-900">$49</span>
+            <span className="text-lg font-bold text-white">$49</span>
           </div>
            <div>
-            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-yellow-400 md:text-lg">
               E-commerce Store 
             </div>
-            <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
+            <p className="mb-3 text-center text-sm text-white md:mb-4 md:text-base">
               Full-featured online store template with cart and checkout
             </p>
             <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500">1,890 downloads</span>
+            <span className="text-sm text-white">1,890 downloads</span>
             <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
@@ -509,7 +531,7 @@ const App = () => {
         </div>
         {/* person - end */}
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6">
+        <div className="flex flex-col items-center rounded-lg bg-zinc-800 p-4 lg:p-6">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30"> 
             <img
               src="https://th.bing.com/th/id/OIP.W-8OCFGMrwmG5JLI4c1ZvQHaEK?rs=1&pid=ImgDetMain"
@@ -520,18 +542,18 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className="bg-zinc-800 text-indigo-600 rounded-full text-sm font-medium">
               Blog
             </span>
-            <span className="text-lg font-bold text-gray-900">Free</span>
+            <span className="text-lg font-bold text-white">Free</span>
           </div>
 
 
           <div>
-            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-yellow-400 md:text-lg">
               Personal Blog
             </div>
-            <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
+            <p className="mb-3 text-center text-sm text-white md:mb-4 md:text-base">
               Minimalist blog template perfect for personal stories
             </p>
             <div className="flex items-center justify-between">
@@ -560,7 +582,7 @@ const App = () => {
         </div>
         {/* person - end */}
         {/* person - start */}
-        <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-6">
+        <div className="flex flex-col items-center rounded-lg bg-zinc-800 p-4 lg:p-6">
           <div className="mb-2 h-24 w-24 overflow-hidden bg-gray-200 shadow-lg md:mb-4 lg:h-60 lg:w-120 sm:w-80 sm:h-40 md:w-50 md:h-30">
             <img
               src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/47aa61101334781.5f1c660e2b883.jpg"
@@ -571,21 +593,21 @@ const App = () => {
           </div>
           <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className=" bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+            <span className=" bg-zinc-800 text-indigo-600 rounded-full text-sm font-medium">
               Portfolio
             </span>
-            <span className="text-lg font-bold text-gray-900">$29</span>
+            <span className="text-lg font-bold text-white">$29</span>
           </div>
 
           <div>
-            <div className="text-center p-2 font-bold text-indigo-500 md:text-lg">
+            <div className="text-center p-2 font-bold text-yellow-400 md:text-lg">
               Creative Portfolio
             </div>
-            <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
+            <p className="mb-3 text-center text-sm text-white md:mb-4 md:text-base">
               Showcase your work with this elegant portfolio template 
             </p>
             <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500">1,567 downloads</span>
+            <span className="text-sm text-white">1,567 downloads</span>
             <button className="flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
               Preview
               <svg
@@ -614,14 +636,17 @@ const App = () => {
 
   {/* testemonials - end */}
   {/* newsletter - start */}
-  <div className="bg-orange-50 py-6 sm:py-8 lg:py-12">
+  <div
+    className="py-6 sm:py-8 lg:py-12"
+    style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}
+  >
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-      <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 sm:p-8">
+      <div className="flex flex-col items-center rounded-lg bg-gray-900/80 p-4 sm:p-8">
         <div className="mb-4 sm:mb-8">
-          <h2 className="text-center text-xl font-bold text-indigo-500 sm:text-2xl lg:text-3xl">
+          <h2 className="text-center text-xl font-bold text-yellow-400 sm:text-2xl lg:text-3xl">
             Get the latest updates
           </h2>
-          <p className="text-center text-gray-500">
+          <p className="text-center text-gray-300">
             Sign up for our newsletter
           </p>
         </div>
@@ -656,7 +681,7 @@ const App = () => {
   </div>
   {/* newsletter - end */}
   {/* footer - start */}
-  <div className="bg-gray-900">
+  <div className="bg-black">
     <footer className="mx-auto max-w-screen-2xl px-4 md:px-8">
       <div className="mb-16 grid grid-cols-2 gap-12 pt-10 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 lg:pt-12">
         <div className="col-span-full lg:col-span-2">
@@ -748,7 +773,7 @@ const App = () => {
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576  4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
             </a>
           </div>

@@ -32,7 +32,7 @@ const Login = () => {
         );
         toast.success('Login successful!');
         localStorage.setItem('token', response.data.token);
-        router.push('/main'); // Redirect to home page after successful login
+        router.push('/'); // Redirect to home page after successful login
       } catch (error) {
         toast.error(error?.response?.data?.message || 'Login failed!');
       }

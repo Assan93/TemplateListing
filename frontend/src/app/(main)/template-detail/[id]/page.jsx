@@ -158,12 +158,12 @@ const TemplateDetail = () => {
                   </span>
                 </div>
 
-                <button
-                  className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-200 mb-4"
-                  onClick={() => toast.success("Purchase feature coming soon!")}
+                <Link
+                  className="w-full block text-center bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-200 mb-4"
+                  href={`/checkout/${template._id}`}
                 >
                   Purchase Template
-                </button>
+                </Link>
 
                 <Link
                   href={template.previewLink || "#"}

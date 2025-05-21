@@ -89,9 +89,14 @@ const TemplateAdd = () => {
   };
 
   return (
-    <div className="min-h-screen bg-emerald-50 py-8">
-      <div className="max-w-2xl mx-auto bg-emerald-50 p-8 rounded-lg shadow">
-        <h1 className="text-2xl font-bold mb-6">Add New Template</h1>
+    <div
+      className="min-h-screen py-8"
+      style={{
+        background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)', // Black to dark gold
+      }}
+    >
+      <div className="max-w-2xl mx-auto bg-white/90 p-8 rounded-lg shadow">
+        <h1 className="text-2xl font-bold mb-6 text-gray-900">Add New Template</h1>
         <form onSubmit={templateForm.handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">Name</label>
