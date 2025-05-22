@@ -496,7 +496,7 @@ const App = () => {
             <span className="py-1 bg-bkack text-indigo-600 rounded-full text-sm font-medium">
               E-commerce
             </span>
-            <span className="text-lg font-bold text-white">$49</span>
+            <span className="text-lg font-bold text-white">₹49</span>
           </div>
            <div>
             <div className="text-center p-2 font-bold text-yellow-400 md:text-lg">
@@ -596,7 +596,7 @@ const App = () => {
             <span className=" bg-zinc-800 text-indigo-600 rounded-full text-sm font-medium">
               Portfolio
             </span>
-            <span className="text-lg font-bold text-white">$29</span>
+            <span className="text-lg font-bold text-white">₹49</span>
           </div>
 
           <div>

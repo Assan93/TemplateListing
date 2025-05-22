@@ -69,9 +69,15 @@ const Browse = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-emerald-50">
+    <div
+      className="min-h-screen w-full"
+      style={{
+        // Gold to black gradient (gold left/top, black right/bottom)
+        background: 'linear-gradient(135deg, #bfa14a 0%, #181818 100%)',
+      }}
+    >
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">Browse Templates</h1>
+        <h1 className="text-3xl font-bold mb-8 text-white">Browse Templates</h1>
 
         {/* Search and Filter */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -95,7 +101,7 @@ const Browse = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredTemplates.length === 0 ? (
-            <div className="col-span-full text-center text-gray-500">No templates found.</div>
+            <div className="col-span-full text-center text-gray-300">No templates found.</div>
           ) : (
             filteredTemplates.map((template) => (
               <Link 
@@ -118,7 +124,7 @@ const Browse = () => {
                     </p>
                     <div className="flex items-center justify-between mt-4">
                       <span className="text-blue-600 font-bold">
-                        ${template.price}
+                        ₹{template.price}
                       </span>
                       <span className="text-sm text-gray-500">
                         {template.category}

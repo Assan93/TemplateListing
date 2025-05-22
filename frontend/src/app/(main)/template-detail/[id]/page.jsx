@@ -58,20 +58,26 @@ const TemplateDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+
+    <div
+      className="min-h-screen py-8"
+      style={{
+        background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)', // Black to gold gradient
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-gray-500 text-sm">
+          <ol className="flex items-center space-x-2 text-gray-300 text-sm">
             <li>
-              <Link href="/browse" className="hover:text-blue-600">
+              <Link href="/browse" className="hover:text-blue-400">
                 Browse
               </Link>
             </li>
             <li>/</li>
             <li>{template.category}</li>
             <li>/</li>
-            <li className="text-gray-900">{template.name}</li>
+            <li className="text-gray-100">{template.name}</li>
           </ol>
         </nav>
 
@@ -79,7 +85,7 @@ const TemplateDetail = () => {
           {/* Template Header */}
           <div className="relative h-[400px]">
             <img
-              src={template.image || "https://via.placeholder.com/1200x400"}
+              src={template.image && template.image.trim() !== "" ? template.image : "https://via.placeholder.com/1200x400"}
               alt={template.name}
               className="w-full h-full object-cover"
             />
@@ -154,7 +160,7 @@ const TemplateDetail = () => {
               <div className="bg-gray-50 p-6 rounded-lg sticky top-8">
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-gray-900">
-                    ${template.price}
+                    ₹{template.price}
                   </span>
                 </div>
 

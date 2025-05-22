@@ -3,12 +3,17 @@
 import { useParams } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const CheckoutPage = () => {
   const containerRef = useRef(null);
   const { id } = useParams();
+  const router = useRouter();
   const [template, setTemplate] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     // Animation
@@ -33,6 +38,35 @@ const CheckoutPage = () => {
     };
     if (id) fetchTemplate();
   }, [id]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/order/add`, {
+        template: id,
+        price: template.price,
+        email: email,
+        paymentStatus: 'pending'
+      });
+
+      if (response.status === 201 && response.data) {
+        toast.success('Order placed successfully!');
+        router.push(`/order-success/${response.data._id}`);
+      }
+    } catch (error) {
+      console.error('Order creation error:', error);
+      
+      const errorMessage = error.response?.data?.message 
+        || error.response?.data?.errors?.[0]
+        || 'Failed to place order';
+      
+      toast.error(errorMessage);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -137,7 +171,7 @@ const CheckoutPage = () => {
                   <div className="flex justify-between mt-4 border-t pt-4">
                     <span className="font-bold text-lg text-gray-800">Total:</span>
                     <span className="font-bold text-lg text-yellow-600">
-                      ${template.price || "39"}
+                      ₹{template.price || "39"}
                     </span>
                   </div>
                 </div>
@@ -151,7 +185,7 @@ const CheckoutPage = () => {
             <h2 className="text-2xl font-bold mb-6 text-gray-800">
               Checkout
             </h2>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold mb-1 text-gray-700">
                   Email Address
@@ -159,15 +193,21 @@ const CheckoutPage = () => {
                 <input
                   type="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="py-3 px-4 block w-full rounded-lg border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-400 transition"
                   placeholder="Enter your email"
+                  disabled={submitting}
                 />
               </div>
               <button
                 type="submit"
-                className="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-bold shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                disabled={submitting}
+                className={`w-full py-3 px-4 rounded-lg bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-bold shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 ${
+                  submitting ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
-                Purchase
+                {submitting ? 'Processing...' : 'Purchase'}
               </button>
             </form>
             <p className="text-xs text-gray-400 mt-4 text-center">

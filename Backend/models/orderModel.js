@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema(
   {
-    user: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
@@ -18,14 +18,9 @@ const orderSchema = new mongoose.Schema(
     },
     paymentStatus: {
       type: String,
-      enum: ['pending', 'paid', 'failed'],
+      enum: ['pending', 'completed', 'failed'],
       default: 'pending',
     },
-    orderDate: {
-      type: Date,
-      default: Date.now,
-    },
-    // Add more fields as needed, e.g. transactionId, paymentMethod, etc.
   },
   { timestamps: true }
 );

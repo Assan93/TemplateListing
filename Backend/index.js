@@ -3,6 +3,7 @@ const express = require('express');
 require('dotenv').config();
 const UserRouter = require('./routers/UserRouters');
 const TemplateRouter = require('./routers/templateRouters');
+const orderRouter = require('./routers/orderRouter');
 const cors = require('cors');
 
 // initialize express
@@ -17,6 +18,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/user', UserRouter);
 app.use('/template', TemplateRouter);
+app.use('/order', orderRouter);
 
 // endpoints or routes
 app.get('/', (req, res) => {

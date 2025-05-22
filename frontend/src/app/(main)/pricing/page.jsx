@@ -121,7 +121,7 @@ const Pricing = () => {
                   <p className="text-gray-700 mb-6">{plan.description}</p>
                   <div className="mb-8">
                     <p className="text-4xl font-bold text-gray-900">
-                      ${plan.price}
+                      ₹{plan.price}
                       <span className="text-xl text-gray-500">/{plan.period}</span>
                     </p>
                   </div>
