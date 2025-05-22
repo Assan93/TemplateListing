@@ -44,24 +44,33 @@ const CheckoutPage = () => {
     setSubmitting(true);
 
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/order/add`, {
-        template: id,
-        price: template.price,
-        email: email,
-        paymentStatus: 'pending'
-      });
+      // Validate inputs
+      if (!email || !template || !id) {
+        toast.error('Missing required information');
+        return;
+      }
 
-      if (response.status === 201 && response.data) {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/order/add`,
+        {
+          template: id,
+          price: template.price,
+          email: email.trim()
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (response.data && response.data._id) {
         toast.success('Order placed successfully!');
         router.push(`/order-success/${response.data._id}`);
       }
     } catch (error) {
       console.error('Order creation error:', error);
-      
-      const errorMessage = error.response?.data?.message 
-        || error.response?.data?.errors?.[0]
-        || 'Failed to place order';
-      
+      const errorMessage = error.response?.data?.message || 'Failed to create order';
       toast.error(errorMessage);
     } finally {
       setSubmitting(false);

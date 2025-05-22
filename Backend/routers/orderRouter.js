@@ -1,55 +1,70 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/orderModel');
-const jwt = require('jsonwebtoken');
 
-// Middleware to verify token
-const verifyToken = (req, res, next) => {
-  try {
-    const token = req.headers.authorization.split(' ')[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    return res.status(401).json({ message: 'Authentication failed' });
-  }
-};
-
-// Get user orders
-router.get('/user-orders', verifyToken, async (req, res) => {
-  try {
-    const orders = await Order.find({ userId: req.user.id })
-      .populate('template')
-      .sort({ createdAt: -1 });
-    
-    res.json(orders);
-  } catch (error) {
-    console.error('Error in user-orders:', error);
-    res.status(500).json({ message: 'Error fetching orders' });
-  }
-});
-
-// Create new order
+// Add new order endpoint
 router.post('/add', async (req, res) => {
   try {
-    const { template, price, email, paymentStatus } = req.body;
+    const { template, price, email } = req.body;
 
+    // Validate required fields
     if (!template || !price || !email) {
-      return res.status(400).json({ message: 'Missing required fields' });
+      return res.status(400).json({ 
+        success: false,
+        message: 'All fields are required'
+      });
     }
 
+    // Create new order
     const newOrder = new Order({
       template,
       price,
-      email,
-      paymentStatus: paymentStatus || 'pending'
+      email: email.toLowerCase(),
+      paymentStatus: 'pending'
     });
 
+    // Save the order
     const savedOrder = await newOrder.save();
-    res.status(201).json(savedOrder);
+
+    res.status(201).json({
+      success: true,
+      _id: savedOrder._id,
+      message: 'Order created successfully'
+    });
+
   } catch (error) {
     console.error('Order creation error:', error);
-    res.status(500).json({ message: 'Error creating order' });
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+// Get single order by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.id)
+      .populate('template', 'name price image category'); // Populate template details
+
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: 'Order not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: order
+    });
+
+  } catch (error) {
+    console.error('Error fetching order:', error);
+    res.status(500).json({
+      success: false,
+      message: error.message || 'Error fetching order'
+    });
   }
 });
 

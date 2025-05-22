@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
 import axios from 'axios';
 
 const OrderSuccess = () => {
@@ -13,8 +12,13 @@ const OrderSuccess = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/order/${id}`);
-        setOrder(response.data);
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/order/${id}`
+        );
+
+        if (response.data && response.data.success) {
+          setOrder(response.data.data);
+        }
       } catch (error) {
         console.error('Error fetching order:', error);
       } finally {
@@ -22,7 +26,9 @@ const OrderSuccess = () => {
       }
     };
 
-    fetchOrder();
+    if (id) {
+      fetchOrder();
+    }
   }, [id]);
 
   if (loading) {
@@ -38,9 +44,6 @@ const OrderSuccess = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-800 to-yellow-600">
         <div className="text-center text-white">
           <h1 className="text-2xl font-bold mb-4">Order Not Found</h1>
-          <Link href="/browse" className="text-yellow-500 hover:text-yellow-400 underline">
-            Return to Browse
-          </Link>
         </div>
       </div>
     );
@@ -80,7 +83,7 @@ const OrderSuccess = () => {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Amount Paid:</span>
-            <span className="font-medium text-gray-900">${order.price}</span>
+            <span className="font-medium text-gray-900">₹{order.price}</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Email:</span>
@@ -92,21 +95,6 @@ const OrderSuccess = () => {
               Confirmed
             </span>
           </div>
-        </div>
-
-        <div className="space-y-4">
-          <Link
-            href="/browse"
-            className="block w-full text-center bg-yellow-500 text-white py-3 px-4 rounded-lg hover:bg-yellow-600 transition duration-200"
-          >
-            Continue Shopping
-          </Link>
-          <Link
-            href="/dashboard"
-            className="block w-full text-center border border-gray-300 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-50 transition duration-200"
-          >
-            View Dashboard
-          </Link>
         </div>
       </div>
     </div>
