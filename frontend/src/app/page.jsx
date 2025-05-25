@@ -99,8 +99,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Growth</h3>
-            <p className="mb-2 text-gray-500">
+            <h3 className="mb-2 text-lg font-semibold text-blue-500 md:text-xl">Growth</h3>
+            <p className="mb-2 text-white">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -132,8 +132,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Security</h3>
-            <p className="mb-2 text-gray-500">
+            <h3 className="mb-2 text-lg font-semibold text-blue-500 md:text-xl">Security</h3>
+            <p className="mb-2 text-white">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -165,8 +165,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Cloud</h3>
-            <p className="mb-2 text-gray-900">
+            <h3 className="mb-2 text-lg font-semibold text-blue-500 md:text-xl">Cloud</h3>
+            <p className="mb-2 text-white">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -198,8 +198,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Speed</h3>
-            <p className="mb-2 text-gray-500">
+            <h3 className="mb-2 text-lg font-semibold text-blue-500 md:text-xl">Speed</h3>
+            <p className="mb-2 text-white">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -231,8 +231,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Support</h3>
-            <p className="mb-2 text-gray-500">
+            <h3 className="mb-2 text-lg font-semibold text-blue-500 md:text-xl">Support</h3>
+            <p className="mb-2 text-white">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -264,8 +264,8 @@ const App = () => {
             </svg>
           </div>
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-white md:text-xl">Dark Mode</h3>
-            <p className="mb-2 text-gray-900">
+            <h3 className="mb-2 text-lg font-semibold text-blue-500 md:text-xl">Dark Mode</h3>
+            <p className="mb-2 text-white">
               Filler text is dummy text which has no meaning however looks very
               similar to real text.
             </p>
@@ -360,7 +360,7 @@ const App = () => {
   {/* stats - start */}
   <div
     className="py-6 sm:py-8 lg:py-12"
-    style={{ background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)' }}
+    style={{ background: 'black' }}
   >
     <div className="mx-auto max-w-screen-xl px-4 md:px-8">
       {/* text - start */}
