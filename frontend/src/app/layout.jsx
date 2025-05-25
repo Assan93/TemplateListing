@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import PrelineScript from "@/components/prelineScript";
+import PrelineScript from "@/components/PrelineScript";
 import Navbar from "@/components/Navbar";
 
 
