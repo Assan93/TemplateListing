@@ -2,7 +2,7 @@ import React from 'react'
 
 const contactSales = () => {
   return (
-    <div className='bg-emerald-100 bg-h-fit'>
+    <div className='bg-emerald-100 bg-h-fit h-full min-h-screen'>
         {/* heads */}
         <div className='text-5xl text-center font-bold py-8'>
             <h1>Contact Sales</h1>

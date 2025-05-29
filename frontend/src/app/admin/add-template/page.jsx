@@ -30,7 +30,7 @@ const TemplateSchema = Yup.object().shape({
 
 const TemplateAdd = () => {
   const [uploading, setUploading] = useState(false);
-  const router = useRouter(); // Add this
+  const router = useRouter();
 
   const templateForm = useFormik({
     initialValues: {
@@ -39,7 +39,7 @@ const TemplateAdd = () => {
       category: '',
       price: '',
       image: '',
-      rating: '' // <-- Add this line
+      rating: ''
     },
     validationSchema: TemplateSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -69,11 +69,11 @@ const TemplateAdd = () => {
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'Template'); // <-- use your unsigned preset name
+    formData.append('upload_preset', 'Template');
 
     try {
       const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/dbqjxlvja/image/upload', // <-- your cloud name
+        'https://api.cloudinary.com/v1_1/dbqjxlvja/image/upload',
         formData
       );
       if (response.data.secure_url) {
@@ -92,7 +92,7 @@ const TemplateAdd = () => {
     <div
       className="min-h-screen py-8"
       style={{
-        background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)', // Black to dark gold
+        background: 'linear-gradient(135deg, #181818 60%, #bfa14a 100%)',
       }}
     >
       <div className="max-w-2xl mx-auto bg-white/90 p-8 rounded-lg shadow">
@@ -142,6 +142,9 @@ const TemplateAdd = () => {
               <option value="landing">Landing Page</option>
               <option value="dashboard">Dashboard</option>
               <option value="ecommerce">E-commerce</option>
+              <option value="personal">Personal Blog</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="protfolio">Creative Portfolio</option>
             </select>
             {templateForm.touched.category && templateForm.errors.category && (
               <p className="text-red-500 text-xs mt-1">{templateForm.errors.category}</p>
